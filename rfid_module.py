@@ -51,5 +51,5 @@ def scan():
         if uid is None:
             continue
         print('')
-        print('Card UID 0x{0}'.format(binascii.hexlify(uid)))
-        return uid
+        hex_uid = format(binascii.hexlify(uid)))
+        return hex_uid
