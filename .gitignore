@@ -1,7 +1,7 @@
 # Watson
-./foco/*
-./hop/*
-./negatives/*
+foco/*
+hop/*
+negatives/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
