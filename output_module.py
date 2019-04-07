@@ -38,6 +38,7 @@ GPIO.setup(buzzer, GPIO.OUT)
 GPIO.setup(push_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(servo, GPIO.OUT)
 motor = GPIO.PWM(servo, 50)
+motor.start(7.5)
 
 # GPIO.add_event_detect(10,GPIO.RISING,callback=button_callback)
 def led_on():
@@ -66,10 +67,10 @@ def buzzer_wrong():
 
 def set_angle(angle):
     duty = angle/18 + 2
-    # GPIO.output(servo, True)
+    GPIO.output(servo, True)
     motor.ChangeDutyCycle(duty)
-    time.sleep(1)
-    # GPIO.output(servo, True)
+    time.sleep(3)
+    GPIO.output(servo, True)
     motor.ChangeDutyCycle(0)
 
 def playTone(p, tone):
@@ -87,7 +88,3 @@ def playTone(p, tone):
 
 def clean_up():
 	GPIO.clean_up()
-
-motor.start(7.5)
-while True:
-	set_angle(90)
