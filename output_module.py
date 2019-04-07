@@ -67,10 +67,10 @@ def buzzer_wrong():
 
 def set_angle(angle):
     duty = angle/18 + 2
-    GPIO.output(servo, True)
+    # GPIO.output(servo, True)
     motor.ChangeDutyCycle(duty)
-    time.sleep(10)
-    GPIO.output(servo, True)
+    time.sleep(1)
+    # GPIO.output(servo, True)
     motor.ChangeDutyCycle(0)
 
 def playTone(p, tone):
@@ -88,3 +88,5 @@ def playTone(p, tone):
 
 def clean_up():
 	GPIO.clean_up()
+
+set_angle(90)
