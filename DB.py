@@ -4,6 +4,7 @@ import sys
 
 
 def query(collection, uid):
+    print(uid)
     return collection.find_one({"uid": uid})["num_box"]
 
 def update(collection, uid, inc_val):
