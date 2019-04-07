@@ -30,7 +30,7 @@ TONES = {"c6":1047,
 	"d4":294,
 	"c4":262}
 
-CORRECT =	[["a5", 32], ["c5", 16]]
+CORRECT = [["a5", 32], ["c5", 16]]
 WRONG = [["ab4", 3]]
 
 GPIO.setup(ledPin, GPIO.OUT)
@@ -64,13 +64,20 @@ def buzzer_wrong():
 	for t in WRONG:
 		playTone(p, t)
 
+# def set_angle(fr, to, vec):
+# 	for i in range(fr, to, vec):
+# 	    duty = 1./18. * i + 2
+# 	    # GPIO.output(servo, True)
+# 	    motor.ChangeDutyCycle(duty)
+# 	    time.sleep(0.02)
+# 	    # GPIO.output(servo, True)
+# 	    # motor.ChangeDutyCycle(0)
+
 def set_angle(angle):
-    duty = angle/18 + 2
-    GPIO.output(servo, True)
-    motor.ChangeDutyCycle(duty)
-    time.sleep(1)
-    GPIO.output(servo, True)
-    motor.ChangeDutyCycle(0)
+	duty = 1.0/18.0 * angle + 2
+	motor.ChangeDutyCycle(duty)
+	time.sleep(1)
+	# motor.ChangeDutyCycle(0)
 
 def playTone(p, tone):
         # calculate duration based on speed and tone-length
@@ -88,5 +95,12 @@ def playTone(p, tone):
 def clean_up():
 	GPIO.clean_up()
 
-motor.start(5)
-motor.set_angle(90)
+motor.start(0)
+# set_angle(0, 180, 1)
+# set_angle(180, 0, -1)
+# motor.ChangeDutyCycle(12)
+# time.sleep(1);
+set_angle(90)
+set_angle(180)
+# # set_angle(0)
+# motor.stop()
