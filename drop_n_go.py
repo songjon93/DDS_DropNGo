@@ -29,7 +29,7 @@ while True:
     # DB.update(DB.col, uid, 1)
     if (DB.query(DB.col, uid) < 0):
         DB.new(DB.col, uid)
-    sleep(2)
+    sleep(3)
     output_module.set_angle(180)
     # playSong(starwars_notes, starwars_beats, 0.2)
     sleep(.5)
