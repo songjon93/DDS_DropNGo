@@ -38,6 +38,7 @@ GPIO.setup(ledPin, GPIO.OUT)
 GPIO.setup(buzzer, GPIO.OUT)
 GPIO.setup(push_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(servo, GPIO.OUT)
+GPIO.setup(servo2, GPIO.OUT)
 motor = GPIO.PWM(servo, 50)
 motor2 = GPIO.PWM(servo2, 50)
 
