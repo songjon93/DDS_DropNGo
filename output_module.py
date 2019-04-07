@@ -92,4 +92,3 @@ def clean_up():
 motor.start(7)
 set_angle(90)
 motor.stop()
-clean_up()
