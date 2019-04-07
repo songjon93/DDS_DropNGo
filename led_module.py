@@ -11,14 +11,11 @@ GPIO.setup(ledPin, GPIO.OUT)
 GPIO.setup(push_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 # GPIO.add_event_detect(10,GPIO.RISING,callback=button_callback)
-
-for i in range(5):
-	print("LED turning on.")
+def led_on():
 	GPIO.output(ledPin, GPIO.HIGH)
-	time.sleep(0.5)
-	print("LED turning off.")
+
+def led_off():
 	GPIO.output(ledPin, GPIO.LOW)
-	time.sleep(0.5)
 
-
-GPIO.cleanup() # Clean up
+def clean_up():
+	GPIO.clean_up()
