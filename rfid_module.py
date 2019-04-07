@@ -26,22 +26,21 @@ from adafruit_pn532.spi import PN532_SPI
 # pn532 = PN532_I2C(i2c, debug=False, reset=reset_pin, req=req_pin)
 
 # SPI connection:
-def init():
-    spi = busio.SPI(board.SCK, board.MOSI, board.MISO)
-    cs_pin = DigitalInOut(board.D5)
-    pn532 = PN532_SPI(spi, cs_pin, debug=False)
+spi = busio.SPI(board.SCK, board.MOSI, board.MISO)
+cs_pin = DigitalInOut(board.D5)
+pn532 = PN532_SPI(spi, cs_pin, debug=False)
 
-    # UART connection
-    #uart = busio.UART(board.TX, board.RX, baudrate=115200, timeout=100)
-    #pn532 = PN532_UART(uart, debug=False)
+# UART connection
+#uart = busio.UART(board.TX, board.RX, baudrate=115200, timeout=100)
+#pn532 = PN532_UART(uart, debug=False)
 
-    ic, ver, rev, support = pn532.get_firmware_version()
-    print('Found PN532 with firmware version: {0}.{1}'.format(ver, rev))
+ic, ver, rev, support = pn532.get_firmware_version()
+print('Found PN532 with firmware version: {0}.{1}'.format(ver, rev))
 
-    # Configure PN532 to communicate with MiFare cards
-    pn532.SAM_configuration()
+# Configure PN532 to communicate with MiFare cards
+pn532.SAM_configuration()
 
-    print('Waiting for RFID/NFC card...')
+print('Waiting for RFID/NFC card...')
 
 def scan():
     while True:

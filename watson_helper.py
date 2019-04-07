@@ -18,7 +18,7 @@ def ask_watson_list(user_input=None):
     for file_path in glob.glob(target):
 
         with open(file_path, 'rb') as images_file:
-            
+
             classes = visual_recognition.classify(
                 images_file,
                 threshold='0.7', # adjust this if you have to
@@ -52,17 +52,17 @@ def ask_watson_list(user_input=None):
 visual_recognition = VisualRecognitionV3(
     '2018-03-19',
     iam_apikey='GuxXSF39chR9aY-sDfObQ4DbAv4gp3mbTJ69zeEfpb37')
-
-if len(sys.argv) <= 2:
-    # print the result of classifying all images in `./images/*.JPG`
-    # make sure all images in the folder have the extension `.JPG` exactly
-    if len(sys.argv) == 1:
-        result = ask_watson_list()
-        print(result)
-    # print the specified image file classification
-    else:
-        result = ask_watson_list(sys.argv[1])
-        print(result[0])
-
-else:
-    print("You need to specify a path of an image file to classify (or classify everything in ./images/)")
+# 
+# if len(sys.argv) <= 2:
+#     # print the result of classifying all images in `./images/*.JPG`
+#     # make sure all images in the folder have the extension `.JPG` exactly
+#     if len(sys.argv) == 1:
+#         result = ask_watson_list()
+#         print(result)
+#     # print the specified image file classification
+#     else:
+#         result = ask_watson_list(sys.argv[1])
+#         print(result[0])
+#
+# else:
+#     print("You need to specify a path of an image file to classify (or classify everything in ./images/)")
