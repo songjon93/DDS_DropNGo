@@ -1,8 +1,11 @@
+import subprocess
 import DB
 import watson_helper
 import rfid_module
 import output_module
 from time import sleep
+
+img = "i.jpg"
 
 while True:
     output_module.led_on()
@@ -10,12 +13,13 @@ while True:
     output_module.led_off()
 
     print("Inspecting To Go Box.\n")
-    classifier_res = watson_helper.ask_watson_list("./images/f_test1.JPG")
-
+    subprocess.run(["sudo", "fswebcam", img])
+    classifier_res = watson_helper.ask_watson_list(img)
     print(classifier_res)
     if (classifier_res[0][1] < 0):
         print("This is not a certified To Go Box.\n")
         continue
+    subprocess.run("rm", img);
 
     # DB.update(DB.col, uid, 1)
     if (DB.query(DB.col, uid) < 0):
