@@ -81,7 +81,7 @@ def set_angle(angle):
 	time.sleep(1)
 	motor.ChangeDutyCycle(0)
 
-def set_angle2(angle)
+def set_angle2(angle):
 	duty = 1.0/18.0 * angle + 2
 	motor2.ChangeDutyCycle(duty)
 	time.sleep(1)
