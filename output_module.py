@@ -74,7 +74,7 @@ def buzzer_wrong():
 # 	    # motor.ChangeDutyCycle(0)
 
 def set_angle(angle):
-	duty = 1.0/18 * angle + 2
+	duty = 1.0/18.0 * angle + 2
 	motor.ChangeDutyCycle(duty)
 	time.sleep(1)
 	motor.ChangeDutyCycle(0)
@@ -100,5 +100,5 @@ motor.start(0)
 # set_angle(90, 0, -1)
 set_angle(90)
 # set_angle(0)
-set_angle(-90)
+set_angle(270)
 motor.stop()
