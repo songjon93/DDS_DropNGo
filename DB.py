@@ -8,10 +8,11 @@ def query(collection, uid):
 
 def update(collection, uid, inc_val):
     collection.update_one({"_id" : uid}, {"$inc": {"num_box" : inc_val}})
+    return query(collection, uid)
 
 
 
-client = pymongo.MongoClient("mongodb+srv://spark9312:hackathon_SungJun@dropngodb-tpjji.azure.mongodb.net/test?retryWrites=true")
+client = pymongo.MongoClient("mongodb+srv://spark9312:hackathon_SungJun@hackathon-dnqp6.azure.mongodb.net/test?retryWrites=true")
 db = client.user_db
 col = db.user
 
