@@ -12,9 +12,10 @@ while True:
     print("Inspecting To Go Box.\n")
     classifier_res = watson_helper.ask_watson_list("./images/f_test_1.JPG")
 
-    if (classifier_res[0][1] < 0):
-        print("This is not a certified To Go Box.\n")
-        continue
+    print(classifier_res)
+    # if (classifier_res[0][1] < 0):
+    #     print("This is not a certified To Go Box.\n")
+    #     continue
 
     # DB.update(DB.col, uid, 1)
     if (DB.query(DB.col, uid) < 0):
