@@ -88,5 +88,5 @@ def playTone(p, tone):
 def clean_up():
 	GPIO.clean_up()
 
-motor.start(0)
+motor.start(5)
 motor.set_angle(90)
