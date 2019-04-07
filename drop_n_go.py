@@ -5,5 +5,6 @@ from time import sleep
 
 while True:
     uid = rfid_module.scan()
-    DB.update(DB.col, uid, 1)
+    # DB.update(DB.col, uid, 1)
+    print(DB.query(DB.col, uid))
     sleep(5)
