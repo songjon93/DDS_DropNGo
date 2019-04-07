@@ -96,13 +96,12 @@ def clean_up():
 	GPIO.clean_up()
 
 motor.start(0)
-set_angle(180)
-time.sleep(5)
 # set_angle(0, 180, 1)
 # set_angle(180, 0, -1)
 # motor.ChangeDutyCycle(12)
 # time.sleep(1);
 set_angle(90)
+sleep(3)
 set_angle(180)
 # # set_angle(0)
 # motor.stop()
