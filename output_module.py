@@ -68,6 +68,7 @@ def buzzer_wrong():
 def set_angle(angle):
 	for i in range(0, angle):
 	    duty = angle/18 + 2
+		print(duty)
 	    # GPIO.output(servo, True)
 	    motor.ChangeDutyCycle(duty)
 	    time.sleep(0.02)
