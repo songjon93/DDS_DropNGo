@@ -64,20 +64,20 @@ def buzzer_wrong():
 	for t in WRONG:
 		playTone(p, t)
 
-# def set_angle(fr, to, vec):
-# 	for i in range(fr, to, vec):
-# 	    duty = 1./18. * i + 2
-# 	    # GPIO.output(servo, True)
-# 	    motor.ChangeDutyCycle(duty)
-# 	    time.sleep(0.02)
-# 	    # GPIO.output(servo, True)
-# 	    # motor.ChangeDutyCycle(0)
+def set_angle(fr, to, vec):
+	for i in range(fr, to, vec):
+	    duty = 1./18. * i + 2
+	    # GPIO.output(servo, True)
+	    motor.ChangeDutyCycle(duty)
+	    time.sleep(0.02)
+	    # GPIO.output(servo, True)
+	    # motor.ChangeDutyCycle(0)
 
-def set_angle(angle):
-	duty = 1.0/18.0 * angle + 2
-	motor.ChangeDutyCycle(duty)
-	time.sleep(1)
-	motor.ChangeDutyCycle(0)
+# def set_angle(angle):
+# 	duty = 1.0/18.0 * angle + 2
+# 	motor.ChangeDutyCycle(duty)
+# 	time.sleep(1)
+# 	motor.ChangeDutyCycle(0)
 
 def playTone(p, tone):
         # calculate duration based on speed and tone-length
@@ -96,9 +96,9 @@ def clean_up():
 	GPIO.clean_up()
 
 motor.start(0)
-# set_angle(0, 90, 1)
-# set_angle(90, 0, -1)
-set_angle(90)
+set_angle(0, 90, 1)
+set_angle(90, 0, -1)
+# set_angle(90)
 # set_angle(0)
-set_angle(0)
+# set_angle(0)
 motor.stop()
