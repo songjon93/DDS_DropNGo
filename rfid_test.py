@@ -6,6 +6,7 @@ from digitalio import DigitalInOut
 # NOTE: pick the import that matches the interface being used
 #
 # from adafruit_pn532.i2c import PN532_I2C
+import adafruit_pn532
 from adafruit_pn532.spi import PN532_SPI
 
 CARD_KEY = [0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF]
