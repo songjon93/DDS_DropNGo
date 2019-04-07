@@ -39,7 +39,6 @@ GPIO.setup(push_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(servo, GPIO.OUT)
 motor = GPIO.PWM(servo, 50)
 
-
 # GPIO.add_event_detect(10,GPIO.RISING,callback=button_callback)
 def led_on():
 	GPIO.output(ledPin, GPIO.HIGH)
@@ -88,3 +87,6 @@ def playTone(p, tone):
 
 def clean_up():
 	GPIO.clean_up()
+
+motor.start(0)
+motor.set_angle(90)
