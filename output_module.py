@@ -79,14 +79,10 @@ def buzzer_wrong():
 def set_angle(angle):
 	duty = 1.0/18.0 * angle + 2
 	motor.ChangeDutyCycle(duty)
-	time.sleep(1)
-	motor.ChangeDutyCycle(0)
-
-def set_angle2(angle):
-	duty = 1.0/18.0 * angle + 2
 	motor2.ChangeDutyCycle(duty)
 	time.sleep(1)
 	motor.ChangeDutyCycle(0)
+	motor2.ChangeDutyCycle(0)
 
 def playTone(p, tone):
         # calculate duration based on speed and tone-length
