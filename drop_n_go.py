@@ -5,9 +5,9 @@ import output_module
 from time import sleep
 
 while True:
-    led_module.led_on()
+    output_module.led_on()
     uid = rfid_module.scan()
-    led_module.led_off()
+    output_module.led_off()
 
     print("Inspecting To Go Box.\n")
     classifier_res = watson_helper.ask_watson_list("./images/f_test_1.JPG")
