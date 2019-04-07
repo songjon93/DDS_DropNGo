@@ -1,5 +1,6 @@
 import board
 import busio
+import binascii
 from digitalio import DigitalInOut
 #
 # NOTE: pick the import that matches the interface being used
