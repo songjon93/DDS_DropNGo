@@ -1,11 +1,11 @@
 import RPi.GPIO as GPIO
 import time
 
-# GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-ledPin = 13
-push_button = 15
+ledPin = 27
+push_button = 22
 
 GPIO.setup(ledPin, GPIO.OUT)
 GPIO.setup(push_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
