@@ -89,7 +89,7 @@ def playTone(p, tone):
 def clean_up():
 	GPIO.clean_up()
 
-motor.start(7)
-while True:
-	set_angle(90)
+motor.start(0)
+set_angle(90)
+set_angle(-90)
 motor.stop()
