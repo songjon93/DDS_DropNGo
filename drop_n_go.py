@@ -25,7 +25,7 @@ while True:
     output_module.buzzer_correct()
 
     # motor move
-    output_module.set_angle(90)
+    output_module.set_angle(110)
     # DB.update(DB.col, uid, 1)
     if (DB.query(DB.col, uid) < 0):
         DB.new(DB.col, uid)
@@ -35,4 +35,3 @@ while True:
     sleep(.5)
     print("You have {} boxes remaining.\n".format(DB.update(DB.col, uid, 1)))
     # output_module.buzzer_off();
-    sleep(3)
