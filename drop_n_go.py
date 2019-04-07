@@ -29,7 +29,8 @@ while True:
     # DB.update(DB.col, uid, 1)
     if (DB.query(DB.col, uid) < 0):
         DB.new(DB.col, uid)
-
+    sleep(2)
+    output_module.set_angle(180)
     # playSong(starwars_notes, starwars_beats, 0.2)
     sleep(.5)
     print("You have {} boxes remaining.\n".format(DB.update(DB.col, uid, 1)))
