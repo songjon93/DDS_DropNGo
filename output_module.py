@@ -29,21 +29,19 @@ TONES = {"c6":1047,
 	"d4":294,
 	"c4":262}
 
-SONG =	[
-	["e5",16],["eb5",16],
-	["e5",16],["eb5",16],["e5",16],["b4",16],["d5",16],["c5",16],
-	["a4",8],["p",16],["c4",16],["e4",16],["a4",16],
-	["b4",8],["p",16],["e4",16],["ab4",16],["b4",16],
-	["c5",8],["p",16],["e4",16],["e5",16],["eb5",16],
-	["e5",16],["eb5",16],["e5",16],["b4",16],["d5",16],["c5",16],
-	["a4",8],["p",16],["c4",16],["e4",16],["a4",16],
-	["b4",8],["p",16],["e4",16],["c5",16],["b4",16],["a4",4]
-	]
+CORRECT =	[["e5",16],["c5",16]]
+WRONG = [["ab4", 32]]
 
-def run():
+def buzzer_correct():
 	p = GPIO.PWM(buzzer, 440)
 	p.start(0.5)
-	for t in SONG:
+	for t in CORRECT:
+		playTone(p, t)
+
+def buzzer_wrong():
+	p = GPIO.PWM(buzzer, 440)
+	p.start(0.5)
+	for t in WRONG:
 		playTone(p, t)
 
 def playTone(p, tone):
