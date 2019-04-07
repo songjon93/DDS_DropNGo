@@ -8,33 +8,62 @@ ledPin = 27
 push_button = 22
 buzzer = 18
 
-c = [32, 65, 131, 262, 523]
-db= [34, 69, 139, 277, 554]
-d = [36, 73, 147, 294, 587]
-eb= [37, 78, 156, 311, 622]
-e = [41, 82, 165, 330, 659]
-f = [43, 87, 175, 349, 698]
-gb= [46, 92, 185, 370, 740]
-g = [49, 98, 196, 392, 784]
-ab= [52, 104, 208, 415, 831]
-a = [55, 110, 220, 440, 880]
-bb= [58, 117, 223, 466, 932]
-b = [61, 123, 246, 492, 984]
+SPEED = 1
 
-starwars_notes = [c[1], g[1], f[1], e[1], d[1], c[2], g[1], f[1], e[1], d[1], c[2], g[1],
-              f[1], e[1], f[1], d[1]]
-starwars_beats = [4,4,1,1,1,4,4,1,1,1,4,4,1,1,1,4]
+# List of tone-names with frequency
+TONES = {"c6":1047,
+	"b5":988,
+	"a5":880,
+	"g5":784,
+	"f5":698,
+	"e5":659,
+	"eb5":622,
+	"d5":587,
+	"c5":523,
+	"b4":494,
+	"a4":440,
+	"ab4":415,
+	"g4":392,
+	"f4":349,
+	"e4":330,
+	"d4":294,
+	"c4":262}
 
-cmajor = [c, d, e, f, g, a, b]
-aminor = [a, b, c, d, e, f, g]
+SONG =	[
+	["e5",16],["eb5",16],
+	["e5",16],["eb5",16],["e5",16],["b4",16],["d5",16],["c5",16],
+	["a4",8],["p",16],["c4",16],["e4",16],["a4",16],
+	["b4",8],["p",16],["e4",16],["ab4",16],["b4",16],
+	["c5",8],["p",16],["e4",16],["e5",16],["eb5",16],
+	["e5",16],["eb5",16],["e5",16],["b4",16],["d5",16],["c5",16],
+	["a4",8],["p",16],["c4",16],["e4",16],["a4",16],
+	["b4",8],["p",16],["e4",16],["c5",16],["b4",16],["a4",4]
+	]
+
+def run():
+	p = GPIO.PWM(BuzzerPin, 440)
+	p.start(0.5)
+	for t in SONG:
+		playTone(p, t)
+
+def playTone(p, tone):
+        # calculate duration based on speed and tone-length
+	duration = (1./(tone[1]*0.25*SPEED))
+
+	if tone[0] == "p": # p => pause
+			time.sleep(duration)
+	else: # let's rock
+		frequency = TONES[tone[0]]
+		p.ChangeFrequency(frequency)
+		p.start(0.5)
+		time.sleep(duration)
+		p.stop()
 
 
 GPIO.setup(ledPin, GPIO.OUT)
 GPIO.setup(buzzer, GPIO.OUT)
 GPIO.setup(push_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-# 
-# tone1 = GPIO.PWM(18, 100)
-# # tone1.start(50)
+
 
 # GPIO.add_event_detect(10,GPIO.RISING,callback=button_callback)
 def led_on():

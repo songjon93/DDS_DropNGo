@@ -24,7 +24,8 @@ while True:
     if (DB.query(DB.col, uid) < 0):
         DB.new(DB.col, uid)
 
-    output_module.buzzer_on();
+    # output_module.buzzer_on();
+    output_module.run()
     # playSong(starwars_notes, starwars_beats, 0.2)
     sleep(.5)
     print("You have {} boxes remaining.\n".format(DB.update(DB.col, uid, 1)))
