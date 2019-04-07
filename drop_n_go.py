@@ -23,6 +23,10 @@ while True:
 
     # output_module.buzzer_on();
     output_module.buzzer_correct()
+
+    # motor move
+    output_module.set_angle(90)
+    output_module.motor.start(0)
     # DB.update(DB.col, uid, 1)
     if (DB.query(DB.col, uid) < 0):
         DB.new(DB.col, uid)
