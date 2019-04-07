@@ -51,5 +51,5 @@ def scan():
         if uid is None:
             continue
         print('')
-        hex_uid = format(binascii.hexlify(uid)))
+        hex_uid = format(binascii.hexlify(uid))
         return hex_uid
