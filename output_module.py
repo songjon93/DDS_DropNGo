@@ -38,7 +38,7 @@ GPIO.setup(buzzer, GPIO.OUT)
 GPIO.setup(push_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(servo, GPIO.OUT)
 motor = GPIO.PWM(servo, 50)
-motor.start(7.5)
+motor.start(0)
 
 # GPIO.add_event_detect(10,GPIO.RISING,callback=button_callback)
 def led_on():
