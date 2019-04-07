@@ -78,6 +78,7 @@ def set_angle(angle):
     # GPIO.output(servo, True)
     motor.ChangeDutyCycle(duty)
     time.sleep(1)
+	motor.ChangeDutyCycle(0)
 
 def playTone(p, tone):
         # calculate duration based on speed and tone-length
@@ -99,5 +100,6 @@ motor.start(0)
 # set_angle(0, 90, 1)
 # set_angle(90, 0, -1)
 set_angle(90)
-set_angle(0)
+# set_angle(0)
+set_angle(-90)
 motor.stop()
