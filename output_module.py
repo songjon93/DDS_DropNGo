@@ -69,7 +69,7 @@ def set_angle(angle):
     duty = angle/18 + 2
     GPIO.output(servo, True)
     motor.ChangeDutyCycle(duty)
-    time.sleep(3)
+    time.sleep(10)
     GPIO.output(servo, True)
     motor.ChangeDutyCycle(0)
 
