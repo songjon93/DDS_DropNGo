@@ -52,7 +52,7 @@ while True:
     print('')
     print('Card UID 0x{0}'.format(binascii.hexlify(uid)))
 
-    if not pn532.mifare_classic_authenticate_block(uid, 4, PN532_SPI.MIFARE_CMD_AUTH_B,
+    if not pn532.mifare_classic_authenticate_block(uid, 4, adafruit_pn532.MIFARE_CMD_AUTH_B,
                                                    CARD_KEY):
         print('Failed to authenticate with card!')
         continue
