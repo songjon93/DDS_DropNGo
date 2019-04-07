@@ -2,11 +2,13 @@ import pymongo
 import dns
 import sys
 
+
 def query(collection, user_id):
     return(collection.find_one({"_id": user_id})["num_box"])
 
 def update(collection, user_id, inc_val):
     collection.update_one({"_id" : user_id}, {"$inc": {"num_box" : inc_val}})
+
 
 
 client = pymongo.MongoClient("mongodb+srv://spark9312:hackathon_SungJun@dropngodb-tpjji.azure.mongodb.net/test?retryWrites=true")
