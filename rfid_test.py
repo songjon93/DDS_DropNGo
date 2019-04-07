@@ -40,9 +40,14 @@ pn532.SAM_configuration()
 print('Waiting for RFID/NFC card...')
 while True:
     # Check if a card is available to read
-    uid = pn532.read_passive_target(timeout=0.5)
-    print('.', end="")
+    # uid = pn532.read_passive_target(timeout=0.5)
+    uid = pn532.mifare_classic_read_block(4)
+    # print('.', end="")
     # Try again if no card is available.
     if uid is None:
+        print('Failed to read data from card!')
         continue
-    print('Found card with UID:', [hex(i) for i in uid])
+    if uid[0:2] !=  HEADER:
+        print('Card is not written with proper block data!')
+        continue
+    print('User Id: {0}'.format(int(uid[2:8].decode("utf-8"), 16)))
