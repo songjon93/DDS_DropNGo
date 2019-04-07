@@ -19,7 +19,6 @@ while True:
     if (classifier_res[0][1] < 0):
         print("This is not a certified To Go Box.\n")
         continue
-    subprocess.run("rm", img);
 
     # DB.update(DB.col, uid, 1)
     if (DB.query(DB.col, uid) < 0):
