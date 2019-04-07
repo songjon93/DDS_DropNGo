@@ -29,8 +29,8 @@ TONES = {"c6":1047,
 	"d4":294,
 	"c4":262}
 
-CORRECT =	[["c5",32],["e5",32],["g5",32],["c6",32]]
-WRONG = [["ab4", 300]]
+CORRECT =	[["c6",1], ["a5", 1]]
+WRONG = [["ab4", .2]]
 
 def buzzer_correct():
 	p = GPIO.PWM(buzzer, 440)
