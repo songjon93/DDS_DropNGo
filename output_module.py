@@ -19,5 +19,11 @@ def led_on():
 def led_off():
 	GPIO.output(ledPin, GPIO.LOW)
 
+def buzzer_on():
+    gpio.output(buzzer, 1)
+
+def buzzer_off():
+    gpio.output(buzzer, 0)
+
 def clean_up():
 	GPIO.clean_up()
