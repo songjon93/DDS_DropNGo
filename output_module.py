@@ -34,7 +34,7 @@ GPIO.setup(buzzer, GPIO.OUT)
 GPIO.setup(push_button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 tone1 = GPIO.PWM(18, 100)
-tone1.start(50)
+# tone1.start(50)
 
 # GPIO.add_event_detect(10,GPIO.RISING,callback=button_callback)
 def led_on():
