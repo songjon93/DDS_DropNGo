@@ -4,8 +4,10 @@ import sys
 
 
 def query(collection, uid):
-    print(uid)
-    return collection.find_one({"uid": uid})["num_box"]
+    data = collection.find_one({"uid": uid})
+    if data is none:
+        return -1
+    return data["num_box"]
 
 def update(collection, uid, inc_val):
     collection.update_one({"uid" : uid}, {"$inc": {"num_box" : inc_val}})
