@@ -4,7 +4,7 @@ import sys
 
 
 def query(collection, uid):
-    return(collection.find_one({"uid": uid})["num_box"])
+    return collection.find_one({"uid": uid})["num_box"]
 
 def update(collection, uid, inc_val):
     collection.update_one({"uid" : uid}, {"$inc": {"num_box" : inc_val}})
