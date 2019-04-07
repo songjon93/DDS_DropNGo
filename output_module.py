@@ -64,8 +64,8 @@ def buzzer_wrong():
 	for t in WRONG:
 		playTone(p, t)
 
-def set_angle(from, to, vec):
-	for i in range(from, to, vec):
+def set_angle(fr, to, vec):
+	for i in range(fr, to, vec):
 	    duty = angle/18 + 2
 	    # GPIO.output(servo, True)
 	    motor.ChangeDutyCycle(duty)
