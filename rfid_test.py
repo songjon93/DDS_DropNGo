@@ -6,6 +6,9 @@ from digitalio import DigitalInOut
 #
 # from adafruit_pn532.i2c import PN532_I2C
 from adafruit_pn532.spi import PN532_SPI
+
+CARD_KEY = [0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF]
+HEADER = b'BG'
 #from adafruit_pn532.uart import PN532_UART
 
 # I2C connection:
@@ -40,14 +43,26 @@ pn532.SAM_configuration()
 print('Waiting for RFID/NFC card...')
 while True:
     # Check if a card is available to read
-    # uid = pn532.read_passive_target(timeout=0.5)
-    uid = pn532.mifare_classic_read_block(4)
-    # print('.', end="")
+    uid = pn532.read_passive_target(timeout=0.5)
+    print('.', end="")
     # Try again if no card is available.
     if uid is None:
+        continue
+    print('')
+    print('Card UID 0x{0}'.format(binascii.hexlify(uid)))
+
+    if not pn532.mifare_classic_authenticate_block(uid, 4, PN532_SPI.MIFARE_CMD_AUTH_B,
+                                                   CARD_KEY):
+        print('Failed to authenticate with card!')
+        continue
+    data = pn532.mifare_classic_read_block(4)
+    if data is None:
         print('Failed to read data from card!')
         continue
-    if uid[0:2] !=  HEADER:
+    # Check the header
+    if data[0:2] !=  HEADER:
         print('Card is not written with proper block data!')
         continue
-    print('User Id: {0}'.format(int(uid[2:8].decode("utf-8"), 16)))
+    # Parse out the block type and subtype
+    print('User Id: {0}'.format(int(data[2:8].decode("utf-8"), 16)))
+    time.sleep(DELAY);
