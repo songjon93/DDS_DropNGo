@@ -41,7 +41,7 @@ SONG =	[
 	]
 
 def run():
-	p = GPIO.PWM(BuzzerPin, 440)
+	p = GPIO.PWM(buzzer, 440)
 	p.start(0.5)
 	for t in SONG:
 		playTone(p, t)
