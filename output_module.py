@@ -90,5 +90,6 @@ def clean_up():
 	GPIO.clean_up()
 
 motor.start(7)
-set_angle(90)
+while True:
+	set_angle(90)
 motor.stop()
