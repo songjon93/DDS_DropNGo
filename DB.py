@@ -5,7 +5,7 @@ import sys
 
 def query(collection, uid):
     data = collection.find_one({"uid": uid})
-    if data is none:
+    if data is None:
         return -1
     return data["num_box"]
 
